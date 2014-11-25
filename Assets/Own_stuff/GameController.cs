@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 	public AudioClip Explain;
 	public AudioClip Ready;
 	public AudioClip OkGo;
-	public int voiceCounter = 0;
+	int voiceCounter = 0;
 
 	// Use this for initialization
 	void Start () {
