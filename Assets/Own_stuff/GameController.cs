@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		preload ();
 	}
 
 	// Update is called once per frame
@@ -47,5 +48,11 @@ public class GameController : MonoBehaviour {
 		if (number == 3) {
 			audio.PlayOneShot(OkGo);
 		}
+	}
+
+	IEnumerator preload() {
+		AsyncOperation async = Application.LoadLevelAsync("Wald");
+		yield return async;
+		Debug.Log("Loading complete");
 	}
 }
