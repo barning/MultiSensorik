@@ -29,9 +29,9 @@ public class GameController : MonoBehaviour {
 	void loadLevel() {
 		if (Application.loadedLevel == 0) {
 			Application.LoadLevel ("Wald");
-			} else {
-			Application.LoadLevel ("Room");
-				}
+			} else if (Application.loadedLevel == 1) {
+				Application.LoadLevel ("Room_Wal");
+			}
 	}
 
 	void theSpeaker(int number) {
