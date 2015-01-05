@@ -10,6 +10,7 @@ public class Licht : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		blendSkybox (0);
 	}
 	
 	// Update is called once per frame
@@ -17,15 +18,15 @@ public class Licht : MonoBehaviour {
 
 		if (Time.realtimeSinceStartup > 5) {
 			licht.light.intensity = Mathf.Lerp(licht.light.intensity,0f,smooth * Time.deltaTime);
-			RenderSettings.fogColor = Color.black;
 			blendSkybox (1);
+			licht.animation.Play("Licht_Animation");
 				}
-		if (Time.realtimeSinceStartup > 30) {
+		if (Time.realtimeSinceStartup > 15) {
 			night=true;
 				}
 		if (night == true) {
 			if (Time.realtimeSinceStartup - lastTimer > randLight){
-				licht.light.intensity = 8f;
+				licht.light.intensity = 3f;
 				licht.light.color = Color.white;
 				lastTimer = Time.realtimeSinceStartup;
 				randLight = Random.Range(1f,8f);

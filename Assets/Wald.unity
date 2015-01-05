@@ -90,7 +90,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &163997180
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_HDR
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
@@ -1587,13 +1587,14 @@ GameObject:
   - 4: {fileID: 800069153}
   - 198: {fileID: 800069152}
   - 199: {fileID: 800069151}
+  - 111: {fileID: 800069154}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &800069151
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -1885,7 +1886,7 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     randomDirection: 0
   EmissionModule:
-    enabled: 1
+    enabled: 0
     m_Type: 0
     rate:
       scalar: 500
@@ -2690,6 +2691,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 382374177}
   m_RootOrder: 2
+--- !u!111 &800069154
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800069150}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: ea4c3343d8d2045a097134113d82cd8a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &847101855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2810,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_HDR: 1
+  m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
@@ -2868,6 +2884,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 994760339}
   - 108: {fileID: 994760338}
+  - 111: {fileID: 994760340}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -2922,6 +2939,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!111 &994760340
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 994760337}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b364a322890384e4f88378f8905d5830, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b364a322890384e4f88378f8905d5830, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &998931892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2963,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 998931894}
   - 182: {fileID: 998931893}
-  - 95: {fileID: 998931895}
+  - 111: {fileID: 998931895}
   m_Layer: 0
   m_Name: WindZone1
   m_TagString: Untagged
@@ -2948,10 +2980,10 @@ WindZone:
   m_Enabled: 1
   m_Mode: 1
   m_Radius: 50
-  m_WindMain: 1.79999995
-  m_WindTurbulence: 3.49000001
-  m_WindPulseMagnitude: .49000001
-  m_WindPulseFrequency: .49000001
+  m_WindMain: 0
+  m_WindTurbulence: 0
+  m_WindPulseMagnitude: 0
+  m_WindPulseFrequency: 0
 --- !u!4 &998931894
 Transform:
   m_ObjectHideFlags: 0
@@ -2964,21 +2996,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!95 &998931895
-Animator:
-  serializedVersion: 3
+--- !u!111 &998931895
+Animation:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 998931892}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 299804cc2b6794821a7c492ca7173291, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!1 &1150417580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3056,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1522948196}
   - 182: {fileID: 1522948195}
+  - 111: {fileID: 1522948194}
   m_Layer: 0
   m_Name: WindZone2
   m_TagString: Untagged
@@ -3031,6 +3064,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &1522948194
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1522948193}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!182 &1522948195
 WindZone:
   m_ObjectHideFlags: 0
@@ -3040,10 +3088,10 @@ WindZone:
   m_Enabled: 1
   m_Mode: 1
   m_Radius: 50
-  m_WindMain: 1.79999995
-  m_WindTurbulence: 3.49000001
-  m_WindPulseMagnitude: .49000001
-  m_WindPulseFrequency: .49000001
+  m_WindMain: 0
+  m_WindTurbulence: 0
+  m_WindPulseMagnitude: 0
+  m_WindPulseFrequency: 0
 --- !u!4 &1522948196
 Transform:
   m_ObjectHideFlags: 0
@@ -3167,7 +3215,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552543020}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bdb6f4bdc7a486493654f07a1abce6, type: 3}
   m_Name: 
@@ -3175,13 +3223,16 @@ MonoBehaviour:
   Wind1: {fileID: 998931892}
   Wind2: {fileID: 1522948193}
   Wind3: {fileID: 2130283660}
+  Regen: {fileID: 800069150}
+  licht: {fileID: 994760337}
+  smooth: .5
 --- !u!114 &1552543025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552543020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21d677098f3046eab43688287aafe1d, type: 3}
   m_Name: 
@@ -3271,6 +3322,7 @@ GameObject:
   - 4: {fileID: 1673085184}
   - 114: {fileID: 1673085183}
   - 154: {fileID: 1673085182}
+  - 95: {fileID: 1673085185}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -3327,6 +3379,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!95 &1673085185
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673085181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae4628c5e8c4448988d3c526137e48ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1805108559
 Prefab:
   m_ObjectHideFlags: 0
@@ -3787,6 +3854,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2130283663}
   - 182: {fileID: 2130283662}
+  - 111: {fileID: 2130283661}
   m_Layer: 0
   m_Name: WindZone3
   m_TagString: Untagged
@@ -3794,6 +3862,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &2130283661
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130283660}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 00bab09f0f8964b4bb6dfb425ebc05ce, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!182 &2130283662
 WindZone:
   m_ObjectHideFlags: 0
@@ -3803,10 +3886,10 @@ WindZone:
   m_Enabled: 1
   m_Mode: 1
   m_Radius: 50
-  m_WindMain: 1.79999995
-  m_WindTurbulence: 3.49000001
-  m_WindPulseMagnitude: .49000001
-  m_WindPulseFrequency: .49000001
+  m_WindMain: 0
+  m_WindTurbulence: 0
+  m_WindPulseMagnitude: 0
+  m_WindPulseFrequency: 0
 --- !u!4 &2130283663
 Transform:
   m_ObjectHideFlags: 0
