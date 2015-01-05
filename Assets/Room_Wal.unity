@@ -375,9 +375,9 @@ AudioSource:
   m_GameObject: {fileID: 323371573}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: ff736b5c9d7cb4007adf77cdd106a6d8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 28c306e69128f4e3a9ce767a8ec82182, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -980,6 +980,7 @@ GameObject:
   - 111: {fileID: 1003256838}
   - 114: {fileID: 1003256839}
   - 82: {fileID: 1003256840}
+  - 167: {fileID: 1003256841}
   m_Layer: 0
   m_Name: Whale
   m_TagString: Untagged
@@ -1092,6 +1093,30 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!167 &1003256841
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003256836}
+  m_Enabled: 1
+  m_MinDistance: 10
+  m_MaxDistance: 15
+  m_ReverbPreset: 18
+  m_Room: -1000
+  m_RoomHF: -2500
+  m_DecayTime: 1.49000001
+  m_DecayHFRatio: .209999993
+  m_Reflections: -2780
+  m_ReflectionsDelay: .300000012
+  m_Reverb: -1434
+  m_ReverbDelay: .100000001
+  m_HFReference: 5000
+  m_RoomRolloffFactor: 0
+  m_Diffusion: 27
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &1043645112
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class Unwetter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Screen.showCursor = false;
 
 		if (Input.GetKeyDown ("h")) {
 			Regen.animation.Play("Regen_Animation");
