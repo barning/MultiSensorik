@@ -113,19 +113,19 @@ PlayerSettings:
       m_Size: 128
   - m_BuildTarget: Standalone
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: a26737464edc04f509ab79a0ccd7c8ea, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 1024
-    - m_Icon: {fileID: 2800000, guid: 6ff78c51a43b3484780e1e4ab9661d29, type: 3}
+    - m_Icon: {fileID: 2800000, guid: a26737464edc04f509ab79a0ccd7c8ea, type: 3}
       m_Size: 512
     - m_Icon: {fileID: 0}
       m_Size: 256
-    - m_Icon: {fileID: 2800000, guid: cda00dc441ee04616a1df2a5daad8780, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 128
     - m_Icon: {fileID: 0}
       m_Size: 48
-    - m_Icon: {fileID: 2800000, guid: 2fed3bd6595974ba8956dd886ca09164, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 32
-    - m_Icon: {fileID: 2800000, guid: 0fda2451ee8ff4791858bfb996cd9eee, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 16
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default

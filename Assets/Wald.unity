@@ -3115,7 +3115,6 @@ GameObject:
   - 114: {fileID: 1552543021}
   - 82: {fileID: 1552543023}
   - 114: {fileID: 1552543024}
-  - 114: {fileID: 1552543025}
   - 45: {fileID: 1552543026}
   m_Layer: 0
   m_Name: GameObject_Wald
@@ -3224,19 +3223,6 @@ MonoBehaviour:
   Wind2: {fileID: 1522948193}
   Wind3: {fileID: 2130283660}
   Regen: {fileID: 800069150}
-  licht: {fileID: 994760337}
-  smooth: .5
---- !u!114 &1552543025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1552543020}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21d677098f3046eab43688287aafe1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   licht: {fileID: 994760337}
   smooth: .5
 --- !u!45 &1552543026
