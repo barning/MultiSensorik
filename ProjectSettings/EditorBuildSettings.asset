@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Room.unity
   - enabled: 0
     path: Assets/Scenes/Wald.unity
-  - enabled: 0
-    path: Assets/Scenes/Room_Wal.unity
   - enabled: 1
     path: Assets/Scenes/LowPolyWald.unity
+  - enabled: 1
+    path: Assets/Scenes/Room_Wal.unity

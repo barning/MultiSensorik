@@ -7,6 +7,8 @@ public class Storm : MonoBehaviour {
 	public GameObject wolken;
 	public GameObject regen;
 	public GameObject theCamera;
+	public GameObject theCameraLeft;
+	public GameObject theCameraRight;
 	public AudioClip thunderOne;
 	public AudioClip thunderTwo;
 
@@ -41,6 +43,8 @@ public class Storm : MonoBehaviour {
 		RenderSettings.fogColor = startFogCol;
 		theCamera.camera.clearFlags = CameraClearFlags.SolidColor;
 		theCamera.camera.backgroundColor = cameraColor;
+		theCameraLeft.camera.clearFlags = CameraClearFlags.SolidColor;
+		theCameraRight.camera.backgroundColor = cameraColor;
 		startFogCol = RenderSettings.fogColor;
 	}
 	
@@ -54,6 +58,8 @@ public class Storm : MonoBehaviour {
 				licht.animation.Play("Light");
 				RenderSettings.fogColor = Color.Lerp(startFogCol,endFogCol,smooth * Time.deltaTime);
 				theCamera.camera.backgroundColor= endCameraCol;
+				theCameraLeft.camera.backgroundColor= endCameraCol;
+				theCameraRight.camera.backgroundColor= endCameraCol;
 
 				if(!regen.particleSystem.isPlaying){
 					regen.particleSystem.Play();

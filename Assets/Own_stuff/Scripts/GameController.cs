@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		preload ();
+		Screen.showCursor = false;
 	}
 
 	// Update is called once per frame
@@ -27,11 +27,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void loadLevel() {
-		if (Application.loadedLevel == 0) {
-			Application.LoadLevel ("Wald");
-			} else if (Application.loadedLevel == 1) {
-				Application.LoadLevel ("Room_Wal");
-			}
+		Application.LoadLevel( Application.loadedLevel + 1 );
 	}
 
 	void theSpeaker(int number) {
@@ -49,10 +45,5 @@ public class GameController : MonoBehaviour {
 			audio.PlayOneShot(OkGo);
 		}
 	}
-
-	IEnumerator preload() {
-		AsyncOperation async = Application.LoadLevelAsync("Wald");
-		yield return async;
-		Debug.Log("Loading complete");
-	}
+	
 }
