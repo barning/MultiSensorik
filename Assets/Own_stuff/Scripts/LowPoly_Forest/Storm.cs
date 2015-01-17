@@ -25,8 +25,12 @@ public class Storm : MonoBehaviour {
 	public float cameraFade;
 
 	float lastTimer;
+	float lastRainTimer;
 	public float randLight = 6f;
 	bool unwetter = false;
+
+	public float skySmooth;
+	float skyboxFader;
 
 	Color startFogCol;
 	Color cameraColor;
@@ -35,6 +39,7 @@ public class Storm : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		blendSkybox (0);
 		niceDay.Play();
 		stormDay.volume = 0f;
 		stormDay.Play ();
@@ -46,7 +51,6 @@ public class Storm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (Input.GetKey ("h")) {
 			if (unwetter == false){
 				niceDay.volume = 0f;
@@ -56,15 +60,22 @@ public class Storm : MonoBehaviour {
 				theCamera.camera.backgroundColor= endCameraCol;
 				theCameraLeft.camera.backgroundColor= endCameraCol;
 				theCameraRight.camera.backgroundColor= endCameraCol;
-
-				if(!regen.particleSystem.isPlaying){
-					regen.particleSystem.Play();
-				}
 			}
 			unwetter = true;
 		}
 
 		if (unwetter == true) {
+
+			if(!regen.particleSystem.isPlaying && Time.timeSinceLevelLoad - lastRainTimer > 5){
+				regen.particleSystem.Play();
+				lastRainTimer = Time.realtimeSinceStartup;
+			}
+
+			if (skyboxFader <=1.5){
+				skyboxFader += skySmooth;
+			}
+			blendSkybox (skyboxFader);
+
 			int monsterRandom = Random.Range(0,15);
 			if (Time.timeSinceLevelLoad - lastTimer > randLight+5 && thunderAudio.isPlaying == false){
 				int range = Random.Range(0,10);
@@ -100,6 +111,11 @@ public class Storm : MonoBehaviour {
 			}
 		}
 	
+	}
+
+	void blendSkybox (float blend) {
+		float temp = blend;
+		RenderSettings.skybox.SetFloat ("_Blend", temp);
 	}
 	
 }
