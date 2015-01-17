@@ -41,10 +41,6 @@ public class Storm : MonoBehaviour {
 		cameraColor = theCamera.camera.backgroundColor;
 
 		RenderSettings.fogColor = startFogCol;
-		theCamera.camera.clearFlags = CameraClearFlags.SolidColor;
-		theCamera.camera.backgroundColor = cameraColor;
-		theCameraLeft.camera.clearFlags = CameraClearFlags.SolidColor;
-		theCameraRight.camera.backgroundColor = cameraColor;
 		startFogCol = RenderSettings.fogColor;
 	}
 	
