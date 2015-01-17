@@ -27,7 +27,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void loadLevel() {
-		Application.LoadLevel( Application.loadedLevel + 1 );
+		int nextlevel = Application.loadedLevel + 1;
+		Autofade.LoadLevel(nextlevel ,3,1,Color.white);
 	}
 
 	void theSpeaker(int number) {
