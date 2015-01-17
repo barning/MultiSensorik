@@ -13,9 +13,8 @@ public class Storm : MonoBehaviour {
 	public AudioClip thunderTwo;
 
 	//Monsters
-	public GameObject dantzMonster;
-	public GameObject nilsMonster;
-	public GameObject cliophateMonster;
+	public GameObject[] monsters;
+	int monsterSoundCounter = 0;
 	
 	public AudioSource niceDay;
 	public AudioSource stormDay;
@@ -76,7 +75,6 @@ public class Storm : MonoBehaviour {
 			}
 			blendSkybox (skyboxFader);
 
-			int monsterRandom = Random.Range(0,15);
 			if (Time.timeSinceLevelLoad - lastTimer > randLight+5 && thunderAudio.isPlaying == false){
 				int range = Random.Range(0,10);
 				if (range <= 5){
@@ -95,24 +93,17 @@ public class Storm : MonoBehaviour {
 				licht.light.intensity = 0f;
 			}
 
-			if (Time.timeSinceLevelLoad - lastTimer > 5){
-				if (monsterRandom >=0 && monsterRandom >=4 && dantzMonster.audio.isPlaying == false){
-					dantzMonster.audio.Play();
-					print("DANTZ");
-				}
-				if (monsterRandom >=5 && monsterRandom >=9 && nilsMonster.audio.isPlaying == false){
-					nilsMonster.audio.Play();
-					print("NILS");
-				}
-				if (monsterRandom >=10 && monsterRandom >=15 && cliophateMonster.audio.isPlaying == false){
-					cliophateMonster.audio.Play();
-					print("KEVIN");
-				}
+			if (Input.GetKeyDown(KeyCode.M)){
+				monsterSounds(monsterSoundCounter);
+				monsterSoundCounter++;
 			}
 		}
 	
 	}
 
+	void monsterSounds(int theMonster){
+			monsters[theMonster].audio.Play();
+		}
 	void blendSkybox (float blend) {
 		float temp = blend;
 		RenderSettings.skybox.SetFloat ("_Blend", temp);
