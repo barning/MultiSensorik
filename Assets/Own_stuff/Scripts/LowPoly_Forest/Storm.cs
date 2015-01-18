@@ -11,7 +11,7 @@ public class Storm : MonoBehaviour {
 	public GameObject theCameraRight;
 	public AudioClip thunderOne;
 	public AudioClip thunderTwo;
-
+	public AudioClip glitchSound;
 	//Monsters
 	public GameObject[] monsters;
 	int monsterSoundCounter = 0;
@@ -19,6 +19,7 @@ public class Storm : MonoBehaviour {
 	public AudioSource niceDay;
 	public AudioSource stormDay;
 	public AudioSource thunderAudio;
+	public AudioSource theGlitch;
 
 	public float smooth;
 	public float cameraFade;
@@ -38,6 +39,7 @@ public class Storm : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		theCamera.GetComponent<GlitchEffect>().enabled = false;
 		blendSkybox (0);
 		niceDay.Play();
 		stormDay.volume = 0f;
@@ -60,11 +62,15 @@ public class Storm : MonoBehaviour {
 				theCameraLeft.camera.backgroundColor= endCameraCol;
 				theCameraRight.camera.backgroundColor= endCameraCol;
 			}
+			theGlitch.clip = glitchSound;
+			theGlitch.Play();
 			unwetter = true;
 		}
+		if (theGlitch.isPlaying == true) {
+			theCamera.GetComponent<GlitchEffect>().enabled = true;
+				}
 
-		if (unwetter == true) {
-
+		if (unwetter == true && theGlitch.isPlaying == false) {
 			if(!regen.particleSystem.isPlaying && Time.timeSinceLevelLoad - lastRainTimer > 5){
 				regen.particleSystem.Play();
 				lastRainTimer = Time.realtimeSinceStartup;
