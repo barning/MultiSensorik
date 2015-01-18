@@ -66,10 +66,8 @@ public class Storm : MonoBehaviour {
 								theGlitch.clip = glitchSound;
 								theGlitch.Play ();
 								theCamera.GetComponent<GlitchEffect> ().enabled = true;
-								if (skyboxFader <= 1.5) {
-										skyboxFader += skySmooth;
-								}
-								blendSkybox (skyboxFader);
+								theCameraLeft.GetComponent<GlitchEffect> ().enabled = true;
+								theCameraRight.GetComponent<GlitchEffect> ().enabled = true;
 								glitchEffect = true;
 								unwetter = true;
 						}
@@ -82,6 +80,10 @@ public class Storm : MonoBehaviour {
 						}
 
 						if (unwetter == true) {
+				if (skyboxFader <= 1.5) {
+					skyboxFader += skySmooth;
+				}
+				blendSkybox (skyboxFader);
 								if (Time.timeSinceLevelLoad - lastRainTimer > 5) {
 										niceDay.Stop ();
 										regen.particleSystem.Play ();
