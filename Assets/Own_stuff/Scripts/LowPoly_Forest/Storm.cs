@@ -28,6 +28,7 @@ public class Storm : MonoBehaviour {
 	float lastRainTimer;
 	public float randLight = 6f;
 	bool unwetter = false;
+	bool glitchEffect = false;
 
 	public float skySmooth;
 	float skyboxFader;
@@ -44,7 +45,6 @@ public class Storm : MonoBehaviour {
 		niceDay.Play();
 		stormDay.volume = 0f;
 		stormDay.Play ();
-		cameraColor = theCamera.camera.backgroundColor;
 
 		RenderSettings.fogColor = startFogCol;
 		startFogCol = RenderSettings.fogColor;
@@ -52,59 +52,65 @@ public class Storm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey ("h")) {
-			if (unwetter == false){
-				niceDay.volume = 0f;
-				stormDay.volume = 1f;
-				licht.animation.Play("Light");
-				RenderSettings.fogColor = Color.Lerp(startFogCol,endFogCol,smooth * Time.deltaTime);
-				theCamera.camera.backgroundColor= endCameraCol;
-				theCameraLeft.camera.backgroundColor= endCameraCol;
-				theCameraRight.camera.backgroundColor= endCameraCol;
-			}
-			theGlitch.clip = glitchSound;
-			theGlitch.Play();
-			unwetter = true;
-		}
-		if (theGlitch.isPlaying == true) {
-			theCamera.GetComponent<GlitchEffect>().enabled = true;
+		if (Application.loadedLevelName == "LowPolyWald") {
+						if (Input.GetKey ("h")) {
+								if (unwetter == false) {
+										niceDay.volume = 0f;
+										stormDay.volume = 1f;
+										licht.animation.Play ("Light");
+										RenderSettings.fogColor = Color.Lerp (startFogCol, endFogCol, smooth * Time.deltaTime);
+										theCamera.camera.backgroundColor = endCameraCol;
+										theCameraLeft.camera.backgroundColor = endCameraCol;
+										theCameraRight.camera.backgroundColor = endCameraCol;
+								}
+								theGlitch.clip = glitchSound;
+								theGlitch.Play ();
+								theCamera.GetComponent<GlitchEffect> ().enabled = true;
+								if (skyboxFader <= 1.5) {
+										skyboxFader += skySmooth;
+								}
+								blendSkybox (skyboxFader);
+								glitchEffect = true;
+								unwetter = true;
+						}
+
+						if (theGlitch.isPlaying == false && glitchEffect) {
+								theCamera.GetComponent<GlitchEffect> ().enabled = false;
+								theCameraLeft.GetComponent<GlitchEffect> ().enabled = false;
+								theCameraRight.GetComponent<GlitchEffect> ().enabled = false;
+								glitchEffect = false;
+						}
+
+						if (unwetter == true) {
+								if (Time.timeSinceLevelLoad - lastRainTimer > 5) {
+										niceDay.Stop ();
+										regen.particleSystem.Play ();
+										lastRainTimer = Time.realtimeSinceStartup;
+								}
+
+								if (Time.timeSinceLevelLoad - lastTimer > randLight + 5 && thunderAudio.isPlaying == false) {
+										int range = Random.Range (0, 10);
+										if (range <= 5) {
+												thunderAudio.clip = thunderOne;
+										}
+										if (range >= 5) {
+												thunderAudio.clip = thunderTwo;
+										}
+										thunderAudio.Play ();
+										licht.light.intensity = 3f;
+										licht.light.color = Color.white;
+										lastTimer = Time.realtimeSinceStartup;
+										randLight = Random.Range (1f, 8f);
+								} else {
+										licht.light.intensity = 0f;
+								}
+
+								if (Input.GetKeyDown (KeyCode.M)) {
+										monsterSounds (monsterSoundCounter);
+										monsterSoundCounter++;
+								}
+						}
 				}
-
-		if (unwetter == true && theGlitch.isPlaying == false) {
-			if(!regen.particleSystem.isPlaying && Time.timeSinceLevelLoad - lastRainTimer > 5){
-				regen.particleSystem.Play();
-				lastRainTimer = Time.realtimeSinceStartup;
-			}
-
-			if (skyboxFader <=1.5){
-				skyboxFader += skySmooth;
-			}
-			blendSkybox (skyboxFader);
-
-			if (Time.timeSinceLevelLoad - lastTimer > randLight+5 && thunderAudio.isPlaying == false){
-				int range = Random.Range(0,10);
-				if (range <= 5){
-					thunderAudio.clip = thunderOne;
-				}
-				if (range >= 5){
-					thunderAudio.clip = thunderTwo;
-				}
-				thunderAudio.Play();
-				licht.light.intensity = 3f;
-				licht.light.color = Color.white;
-				lastTimer = Time.realtimeSinceStartup;
-				randLight = Random.Range(1f,8f);
-			}
-			else {
-				licht.light.intensity = 0f;
-			}
-
-			if (Input.GetKeyDown(KeyCode.M)){
-				monsterSounds(monsterSoundCounter);
-				monsterSoundCounter++;
-			}
-		}
-	
 	}
 
 	void monsterSounds(int theMonster){

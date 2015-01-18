@@ -16,10 +16,38 @@ public class GameController : MonoBehaviour {
 	}
 
 	void loadLevel() {
+		//AudioSource[] sounds = FindObjectsOfType (typeof(AudioSource))as AudioSource[];
+		//foreach (AudioSource audio in sounds) {
+		//	audio.Stop();
+		//		} 
 		if (Application.loadedLevel != 2){
 			int nextlevel = Application.loadedLevel + 1;
-			Autofade.LoadLevel(nextlevel ,3,1,Color.white);
+			FadeOutMusic();
+			Autofade.LoadLevel(nextlevel ,3,3,Color.white);
 		}
+	}
+
+	public void FadeOutMusic()
+	{
+		StartCoroutine(FadeMusic());
+	}
+	IEnumerator FadeMusic()
+	{
+		AudioSource[] sounds = FindObjectsOfType (typeof(AudioSource))as AudioSource[];
+
+		foreach (AudioSource audio in sounds) {
+			if (audio != null) {
+						while (audio.volume > .1F) {
+								audio.volume = Mathf.Lerp (audio.volume, 0F, 0.3f*Time.deltaTime);
+								yield return 0;
+						}
+						audio.volume = 0;
+			if (audio.volume == 0){
+				audio.Stop();
+			}
+			}
+						//perfect opportunity to insert an on complete hook here before the coroutine exits.
+				}
 	}
 	
 }
