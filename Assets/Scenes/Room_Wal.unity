@@ -693,7 +693,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400028, guid: 1fcfd9072551fe847a0720c5846e0752, type: 3}
   m_PrefabInternal: {fileID: 263445028}
   m_GameObject: {fileID: 433703278}
-  m_LocalRotation: {x: -.0471745282, y: -.397950053, z: .640441537, w: .655167997}
+  m_LocalRotation: {x: -.0471745245, y: -.397950023, z: .640441477, w: .655167937}
   m_LocalPosition: {x: -.160160303, y: .366124272, z: -.0196504984}
   m_LocalScale: {x: 1.00000012, y: 1, z: 1}
   m_Children:
@@ -748,7 +748,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400024, guid: 1fcfd9072551fe847a0720c5846e0752, type: 3}
   m_PrefabInternal: {fileID: 263445028}
   m_GameObject: {fileID: 614740962}
-  m_LocalRotation: {x: .162180886, y: .506649077, z: -.201303288, w: .822484672}
+  m_LocalRotation: {x: .162180901, y: .506649137, z: -.201303303, w: .822484732}
   m_LocalPosition: {x: -1.3038516e-08, y: .280494034, z: 3.7252903e-09}
   m_LocalScale: {x: .999999762, y: .999999881, z: 1}
   m_Children:
@@ -1693,7 +1693,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 1fcfd9072551fe847a0720c5846e0752, type: 3}
   m_PrefabInternal: {fileID: 263445028}
   m_GameObject: {fileID: 1440699548}
-  m_LocalRotation: {x: -.0524144359, y: -1.71127226e-07, z: 8.98232599e-09, w: .998625457}
+  m_LocalRotation: {x: -.0524144322, y: -1.71127212e-07, z: 8.98232511e-09, w: .998625398}
   m_LocalPosition: {x: -2.58637556e-12, y: .309563518, z: 1.50754231e-09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2219,8 +2219,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1853061322}
   m_AABB:
-    m_Center: {x: -.00121694803, y: 1.04286385, z: -.0809670091}
-    m_Extent: {x: .857543886, y: 1.45957041, z: .805859268}
+    m_Center: {x: -.00121682882, y: 1.04286385, z: -.0809670091}
+    m_Extent: {x: .857543766, y: 1.45957041, z: .805859208}
   m_DirtyAABB: 0
 --- !u!1 &1673620047
 GameObject:
@@ -2477,7 +2477,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400012, guid: 1fcfd9072551fe847a0720c5846e0752, type: 3}
   m_PrefabInternal: {fileID: 263445028}
   m_GameObject: {fileID: 1906461448}
-  m_LocalRotation: {x: .0539897382, y: -.00230500358, z: -.0227258634, w: .998280227}
+  m_LocalRotation: {x: .0539897345, y: -.00230500335, z: -.0227258615, w: .998280168}
   m_LocalPosition: {x: -3.66195962e-12, y: .281628698, z: 2.08136219e-09}
   m_LocalScale: {x: .999999881, y: .999999881, z: .999999881}
   m_Children:
