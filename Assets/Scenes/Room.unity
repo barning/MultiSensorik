@@ -378,6 +378,7 @@ MonoBehaviour:
   speakers:
   - {fileID: 8300000, guid: d04202932ad124dd19521491a457fc2a, type: 3}
   theCanvas: {fileID: 268405308}
+  speakerSource: {fileID: 323371576}
 --- !u!4 &323371575
 Transform:
   m_ObjectHideFlags: 0

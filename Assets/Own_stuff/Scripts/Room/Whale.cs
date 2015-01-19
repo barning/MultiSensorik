@@ -7,13 +7,16 @@ public class Whale : MonoBehaviour {
 	public float speed;
 	public GameObject scrollObject;
 	public GameObject theParticles;
+	bool scrollPlayed = true;
+
 	void Update() {
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-		if (transform.position == target.position) {
+		if (transform.position == target.position && scrollPlayed) {
 			scrollObject.animation.Play();
 			if (theParticles !=null){
 				theParticles.particleEmitter.emit = false;
+				scrollPlayed = false;
 			}
 				}
 	}

@@ -15,6 +15,7 @@ public class Storm : MonoBehaviour {
 	//Monsters
 	public GameObject[] monsters;
 	int monsterSoundCounter = 0;
+
 	
 	public AudioSource niceDay;
 	public AudioSource stormDay;
@@ -26,6 +27,7 @@ public class Storm : MonoBehaviour {
 
 	float lastTimer;
 	float lastRainTimer;
+	float lastMonsterTimer;
 	public float randLight = 6f;
 	bool unwetter = false;
 	bool glitchEffect = false;
@@ -53,7 +55,7 @@ public class Storm : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Application.loadedLevelName == "LowPolyWald") {
-						if (Input.GetKey ("h")) {
+			if (Time.timeSinceLevelLoad >= 92 && Time.timeSinceLevelLoad <= 93) {
 								if (unwetter == false) {
 										niceDay.volume = 0f;
 										stormDay.volume = 1f;
@@ -87,7 +89,7 @@ public class Storm : MonoBehaviour {
 								if (Time.timeSinceLevelLoad - lastRainTimer > 5) {
 										niceDay.Stop ();
 										regen.particleSystem.Play ();
-										lastRainTimer = Time.realtimeSinceStartup;
+										lastRainTimer = Time.timeSinceLevelLoad;
 								}
 
 								if (Time.timeSinceLevelLoad - lastTimer > randLight + 5 && thunderAudio.isPlaying == false) {
@@ -107,9 +109,10 @@ public class Storm : MonoBehaviour {
 										licht.light.intensity = 0f;
 								}
 
-								if (Input.GetKeyDown (KeyCode.M)) {
+				if (Time.timeSinceLevelLoad - lastMonsterTimer > 16) {
 										monsterSounds (monsterSoundCounter);
 										monsterSoundCounter++;
+										lastMonsterTimer = Time.timeSinceLevelLoad;
 								}
 						}
 				}
@@ -117,6 +120,7 @@ public class Storm : MonoBehaviour {
 
 	void monsterSounds(int theMonster){
 			monsters[theMonster].audio.Play();
+		print ("Monster");
 		}
 	void blendSkybox (float blend) {
 		float temp = blend;

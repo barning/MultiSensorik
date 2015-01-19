@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 	public AudioClip[] speakers;
 	public GameObject theCanvas;
+	public AudioSource speakerSource;
 	int voiceCounter = 0;
 	int levelCounter;
 	bool wasPlayed = false;
@@ -21,7 +22,6 @@ public class GameController : MonoBehaviour {
 		if (Input.GetButton("Fire1")) {
 			loadLevel();
 		}
-		print (Time.timeSinceLevelLoad);
 
 		///THIS IS FOR LEVEL 1
 		if (Application.loadedLevel == 0)
@@ -30,10 +30,10 @@ public class GameController : MonoBehaviour {
 				theSpeaker(0);
 				wasPlayed = true;
 			}
+			if (Time.timeSinceLevelLoad >= 30) {
+				loadLevel();
+			}
 		}
-		if (levelCounter == 1 && Time.timeSinceLevelLoad >= 30) {
-			loadLevel();
-				}
 		/////////
 		/// 
 		///THIS IS FOR LEVEL 2
@@ -42,32 +42,43 @@ public class GameController : MonoBehaviour {
 			if (!wasPlayed && Time.timeSinceLevelLoad >= 8 && Time.timeSinceLevelLoad <= 9){
 				theSpeaker(0);
 				wasPlayed = true;
-				print("Erster");
 			}
 			if (Time.timeSinceLevelLoad >= 20 && Time.timeSinceLevelLoad <= 22){
 				wasPlayed = false;
-				print("Mitte");
 			}
-			if (!wasPlayed && Time.timeSinceLevelLoad >= 100){
+			if (!wasPlayed && Time.timeSinceLevelLoad >= 85 && Time.timeSinceLevelLoad <= 86){
 				theSpeaker(1);
 				wasPlayed = true;
-				print("Zweiter");
+			}
+
+			if (Time.timeSinceLevelLoad >= 100 && Time.timeSinceLevelLoad <= 102){
+				wasPlayed = false;
+			}
+
+			if (!wasPlayed && Time.timeSinceLevelLoad >= 160 && Time.timeSinceLevelLoad <= 161){
+				theSpeaker(2);
+				wasPlayed = true;
+			}
+			if (Time.timeSinceLevelLoad >= 167) {
+				loadLevel();
 			}
 		}
-		/*if (levelCounter == 2 && Time.timeSinceLevelLoad >= 30) {
-			loadLevel();
-		}*/
 		/////////
-		
-		if (Input.GetButtonDown("Fire3")) {
-			theSpeaker(voiceCounter);
-			voiceCounter++;
-			print(voiceCounter);
+		/// 
+		/// ///THIS IS FOR LEVEL 2
+		if (Application.loadedLevel == 2) {
+			if (!wasPlayed && Time.timeSinceLevelLoad >= 0 && Time.timeSinceLevelLoad <= 1){
+				theSpeaker(0);
+				wasPlayed = true;
+				print("Erster");
+			}
 		}
+		/// 
+
 	}
 	
 	void theSpeaker(int number) {
-		audio.PlayOneShot(speakers[number]);
+		speakerSource.PlayOneShot(speakers[number]);
 	}
 
 	void loadLevel() {
