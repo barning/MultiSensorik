@@ -113,9 +113,9 @@ PlayerSettings:
       m_Size: 128
   - m_BuildTarget: Standalone
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 5a65a039fb12f46298574aa20dcebd7d, type: 3}
       m_Size: 1024
-    - m_Icon: {fileID: 2800000, guid: a26737464edc04f509ab79a0ccd7c8ea, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 512
     - m_Icon: {fileID: 0}
       m_Size: 256
@@ -128,7 +128,7 @@ PlayerSettings:
     - m_Icon: {fileID: 0}
       m_Size: 16
   m_BuildTargetBatching: []
-  webPlayerTemplate: APPLICATION:Default
+  webPlayerTemplate: APPLICATION:Black Background
   m_TemplateCustomTags: {}
   locationUsageDescription: 
   XboxTitleId: 
