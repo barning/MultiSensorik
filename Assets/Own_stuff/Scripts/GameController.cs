@@ -27,8 +27,10 @@ public class GameController : MonoBehaviour {
 		if (Application.loadedLevel == 0)
 		{
 			if (!theCanvas.animation.isPlaying && !wasPlayed && Time.timeSinceLevelLoad >= 8){
-				theSpeaker(0);
-				wasPlayed = true;
+				if (speakers != null){
+					theSpeaker(0);
+					wasPlayed = true;
+				}
 			}
 			if (Time.timeSinceLevelLoad >= 30) {
 				loadLevel();
@@ -40,15 +42,19 @@ public class GameController : MonoBehaviour {
 		if (Application.loadedLevel == 1)
 		{
 			if (!wasPlayed && Time.timeSinceLevelLoad >= 8 && Time.timeSinceLevelLoad <= 9){
-				theSpeaker(0);
-				wasPlayed = true;
+				if (speakers != null){
+					theSpeaker(0);
+					wasPlayed = true;
+				}
 			}
 			if (Time.timeSinceLevelLoad >= 20 && Time.timeSinceLevelLoad <= 22){
 				wasPlayed = false;
 			}
 			if (!wasPlayed && Time.timeSinceLevelLoad >= 85 && Time.timeSinceLevelLoad <= 86){
-				theSpeaker(1);
-				wasPlayed = true;
+				if (speakers != null){
+					theSpeaker(1);
+					wasPlayed = true;
+				}
 			}
 
 			if (Time.timeSinceLevelLoad >= 100 && Time.timeSinceLevelLoad <= 102){
