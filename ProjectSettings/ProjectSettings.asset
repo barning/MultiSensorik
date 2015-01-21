@@ -10,8 +10,8 @@ PlayerSettings:
   targetGlesGraphics: 1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: MultiSensorik
+  companyName: Niklas Barning
+  productName: mellanrum
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -46,7 +46,7 @@ PlayerSettings:
   stripPhysics: 0
   forceSingleInstance: 0
   resizableWindow: 0
-  useMacAppStoreValidation: 0
+  useMacAppStoreValidation: 1
   gpuSkinning: 1
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
