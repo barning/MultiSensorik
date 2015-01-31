@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Storm : MonoBehaviour {
 
+	private RealSpace3D.RealSpace3D_AudioSource theAudioSource = null;
+
 	public GameObject licht;
 	public GameObject wolken;
 	public GameObject regen;
@@ -21,6 +23,7 @@ public class Storm : MonoBehaviour {
 	public AudioSource stormDay;
 	public AudioSource thunderAudio;
 	public AudioSource theGlitch;
+
 
 	public float smooth;
 	public float cameraFade;
@@ -119,7 +122,9 @@ public class Storm : MonoBehaviour {
 	}
 
 	void monsterSounds(int theMonster){
-			monsters[theMonster].audio.Play();
+		monsters[theMonster].audio.Play();
+		theAudioSource = monsters[theMonster].GetComponent("RealSpace3D_AudioSource") as RealSpace3D.RealSpace3D_AudioSource;
+		theAudioSource.rs3d_PlaySound();
 		print ("Monster");
 		}
 	void blendSkybox (float blend) {

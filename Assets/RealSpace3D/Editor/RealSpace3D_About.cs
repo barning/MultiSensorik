@@ -28,6 +28,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using RealSpace3D;
+using RealSpace3DWrapper;
 
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
@@ -45,7 +46,7 @@ using RealSpace3D;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("0.9.7.*")]
+[assembly: AssemblyVersion("0.9.8.*")]
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.
@@ -56,50 +57,24 @@ using RealSpace3D;
 
 public class RealSpace3D_About : MonoBehaviour
 {
-#if UNITY_IPHONE || UNITY_XBOX360
-		
-	[DllImport("__Internal")]
-	private static extern int 	_rs3dGetBuildDate();
-		
-	[DllImport("__Internal")]
-	private static extern int 	_rs3dGetVersionMajor();
-		
-	[DllImport("__Internal")]
-	private static extern int 	_rs3dGetVersionMinor();
-		
-#else
-	[DllImport("RealSpace3D_vsEngine")]
-	private static extern int 	_rs3dGetBuildDate();
-		
-	[DllImport("RealSpace3D_vsEngine")]
-	private static extern int 	_rs3dGetVersionMajor();
-		
-	[DllImport("RealSpace3D_vsEngine")]
-	private static extern int 	_rs3dGetVersionMinor();
-		
-#endif
-		
-		
+	private static RealSpace3D_Wrapper theWrapper =	RealSpace3D_Wrapper.Instance; // PaRappa the Rapper
+
 	[MenuItem("Help/RealSpace3D/About")]
+
 	/// <summary>
 	/// Init this instance. Shows build date and version number.
 	/// </summary>
 	private static void Init()
 	{
-#if	UNITY_IPHONE		
-		string sNotice = "Running mobile iPhone app - console version: 0.9.7";
-		EditorUtility.DisplayDialog("RealSpace3D Copyright 2011 - 2014", sNotice, "Ok");
-#else
-		int nBuildDate = 	_rs3dGetBuildDate();
-		int nVersionMajor = _rs3dGetVersionMajor();
-		int nVersionMinor = _rs3dGetVersionMinor();
-			
+		int nBuildDate = 	theWrapper.GetBuildDate();
+		int nVersionMajor = theWrapper.GetVersionMajor();
+		int nVersionMinor = theWrapper.GetVersionMinor();
+		
 		GetRS3DVersion theRS3DVersion = new GetRS3DVersion();
-			
+		
 		string sNotice = "RealSpace3D version: " + theRS3DVersion.FormatVersion() + "\nVsEngine version: v" + nVersionMajor.ToString() + "." + nVersionMinor.ToString() + "." + nBuildDate.ToString() + "\n\nReport bugs to or request license from support@visisonics.com" + "\n\nVisiSonics, Inc. Copyright 2011 - 2014";
-			
+		
 		EditorUtility.DisplayDialog("RealSpace3D Copyright 2011 - 2014", sNotice, "Ok");
-#endif
 	}
 
 	public class GetRS3DVersion
