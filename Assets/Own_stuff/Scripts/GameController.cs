@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
 	public AudioClip[] speakers;
 	public GameObject theCanvas;
 	public AudioSource speakerSource;
+	public Transform OVRCameraController;
 	int voiceCounter = 0;
 	int levelCounter;
 	bool wasPlayed = false;
@@ -33,6 +34,7 @@ public class GameController : MonoBehaviour {
 				}
 			}
 			if (Time.timeSinceLevelLoad >= 30) {
+				loadLevel();
 				loadLevel();
 			}
 		}
@@ -90,8 +92,10 @@ public class GameController : MonoBehaviour {
 	void loadLevel() {
 		if (Application.loadedLevel != 2){
 			int nextlevel = Application.loadedLevel + 1;
+			OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
+			OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
 			FadeOutMusic();
-			Autofade.LoadLevel(nextlevel ,3,3,Color.white);
+			//Autofade.LoadLevel(nextlevel ,3,3,Color.white);
 		}
 	}
 
