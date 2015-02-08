@@ -20,12 +20,17 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton("Fire1")) {
+		if (Input.GetKey(KeyCode.Space)) {
 			loadLevel();
 		}
 
+		///THIS IS FOR LEVEL 0
+		if (Application.loadedLevel == 0) {
+
+				}
+
 		///THIS IS FOR LEVEL 1
-		if (Application.loadedLevel == 0)
+		if (Application.loadedLevel == 1)
 		{
 			if (!theCanvas.animation.isPlaying && !wasPlayed && Time.timeSinceLevelLoad >= 8){
 				if (speakers != null){
@@ -41,7 +46,7 @@ public class GameController : MonoBehaviour {
 		/////////
 		/// 
 		///THIS IS FOR LEVEL 2
-		if (Application.loadedLevel == 1)
+		if (Application.loadedLevel == 2)
 		{
 			if (!wasPlayed && Time.timeSinceLevelLoad >= 8 && Time.timeSinceLevelLoad <= 9){
 				if (speakers != null){
@@ -52,29 +57,29 @@ public class GameController : MonoBehaviour {
 			if (Time.timeSinceLevelLoad >= 20 && Time.timeSinceLevelLoad <= 22){
 				wasPlayed = false;
 			}
-			if (!wasPlayed && Time.timeSinceLevelLoad >= 85 && Time.timeSinceLevelLoad <= 86){
+			if (!wasPlayed && Time.timeSinceLevelLoad >= 55 && Time.timeSinceLevelLoad <= 56){
 				if (speakers != null){
 					theSpeaker(1);
 					wasPlayed = true;
 				}
 			}
 
-			if (Time.timeSinceLevelLoad >= 100 && Time.timeSinceLevelLoad <= 102){
+			if (Time.timeSinceLevelLoad >= 70 && Time.timeSinceLevelLoad <= 72){
 				wasPlayed = false;
 			}
 
-			if (!wasPlayed && Time.timeSinceLevelLoad >= 160 && Time.timeSinceLevelLoad <= 161){
+			if (!wasPlayed && Time.timeSinceLevelLoad >= 110 && Time.timeSinceLevelLoad <= 111){
 				theSpeaker(2);
 				wasPlayed = true;
 			}
-			if (Time.timeSinceLevelLoad >= 167) {
+			if (Time.timeSinceLevelLoad >= 115) {
 				loadLevel();
 			}
 		}
 		/////////
 		/// 
 		/// ///THIS IS FOR LEVEL 2
-		if (Application.loadedLevel == 2) {
+		if (Application.loadedLevel == 3) {
 			if (!wasPlayed && Time.timeSinceLevelLoad >= 0 && Time.timeSinceLevelLoad <= 1){
 				theSpeaker(0);
 				wasPlayed = true;
@@ -90,13 +95,19 @@ public class GameController : MonoBehaviour {
 	}
 
 	void loadLevel() {
-		if (Application.loadedLevel != 2){
+		if (Application.loadedLevel != 3){
 			int nextlevel = Application.loadedLevel + 1;
 			OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
 			OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
 			FadeOutMusic();
 			//Autofade.LoadLevel(nextlevel ,3,3,Color.white);
 		}
+		if (Application.loadedLevel == 3) {
+			int nextlevel = 0;
+			OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
+			OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
+			FadeOutMusic();
+				}
 	}
 
 	public void FadeOutMusic()

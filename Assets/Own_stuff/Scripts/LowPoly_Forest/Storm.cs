@@ -58,7 +58,7 @@ public class Storm : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Application.loadedLevelName == "LowPolyWald") {
-			if (Time.timeSinceLevelLoad >= 92 && Time.timeSinceLevelLoad <= 93) {
+			if (Time.timeSinceLevelLoad >= 60 && Time.timeSinceLevelLoad <= 61) {
 								if (unwetter == false) {
 										niceDay.volume = 0f;
 										stormDay.volume = 1f;
@@ -122,7 +122,7 @@ public class Storm : MonoBehaviour {
 	}
 
 	void monsterSounds(int theMonster){
-		monsters[theMonster].audio.Play();
+		//monsters[theMonster].audio.Play();
 		theAudioSource = monsters[theMonster].GetComponent("RealSpace3D_AudioSource") as RealSpace3D.RealSpace3D_AudioSource;
 		theAudioSource.rs3d_PlaySound();
 		print ("Monster");
