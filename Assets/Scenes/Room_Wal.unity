@@ -410,10 +410,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: movement.gravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -772,6 +776,8 @@ MonoBehaviour:
   theCanvas: {fileID: 0}
   speakerSource: {fileID: 323371576}
   OVRCameraController: {fileID: 97954453}
+  fpsCamera: {fileID: 1522012329}
+  hmdCamera: {fileID: 97954452}
 --- !u!4 &323371575
 Transform:
   m_ObjectHideFlags: 0
@@ -2156,7 +2162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1522012330
 Transform:
   m_ObjectHideFlags: 0
@@ -2179,7 +2185,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 170383349}
   m_GameObject: {fileID: 1522012329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60bca8f58a0b8478e946e6e86658cb29, type: 3}
   m_Name: 

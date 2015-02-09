@@ -230,10 +230,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: movement.gravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -338,7 +342,7 @@ Animation:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268405308}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 75ddfa9309d334e45934354dedc3de94, type: 2}
   m_Animations:
@@ -381,6 +385,8 @@ MonoBehaviour:
   theCanvas: {fileID: 0}
   speakerSource: {fileID: 323371576}
   OVRCameraController: {fileID: 97954453}
+  fpsCamera: {fileID: 1522012329}
+  hmdCamera: {fileID: 97954452}
 --- !u!4 &323371575
 Transform:
   m_ObjectHideFlags: 0
@@ -591,7 +597,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 502814357}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -610,7 +616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: mellanrum
+  m_Text: please press "space"
 --- !u!222 &502814360
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -983,8 +989,9 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1017233599}
+  - 224: {fileID: 1017233599}
   - 225: {fileID: 1017233598}
+  - 222: {fileID: 1017233600}
   m_Layer: 0
   m_Name: TextContainer
   m_TagString: Untagged
@@ -1003,20 +1010,31 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!4 &1017233599
-Transform:
+--- !u!224 &1017233599
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017233597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 345.579285, y: -196, z: 995.322815}
+  m_LocalPosition: {x: 0, y: 0, z: 995.322815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 502814358}
   - {fileID: 1483064285}
   m_Father: {fileID: 268405312}
   m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 345.579285, y: -196}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!222 &1017233600
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017233597}
 --- !u!1 &1043645112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1483064283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,7 +1358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1522012330
 Transform:
   m_ObjectHideFlags: 0
@@ -1363,7 +1381,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 170383349}
   m_GameObject: {fileID: 1522012329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60bca8f58a0b8478e946e6e86658cb29, type: 3}
   m_Name: 

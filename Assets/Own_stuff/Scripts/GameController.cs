@@ -6,16 +6,36 @@ public class GameController : MonoBehaviour {
 	public GameObject theCanvas;
 	public AudioSource speakerSource;
 	public Transform OVRCameraController;
+
+	public GameObject fpsCamera;
+	public GameObject hmdCamera;
+
 	int voiceCounter = 0;
 	int levelCounter;
 	bool wasPlayed = false;
+	bool oculusPresent=false;
 	// Use this for initialization
 
+	void CheckOculusPresence() {
+		oculusPresent=Ovr.Hmd.Detect() > 0;
+	}
+
 	void Start () {
+		CheckOculusPresence();
+		OVRManager.HMDAcquired+=CheckOculusPresence;
+		OVRManager.HMDLost+=CheckOculusPresence;
 		levelCounter = Application.loadedLevel +1;
 		print("Level is "+levelCounter);
 		Screen.showCursor = false;
 		wasPlayed = false;
+
+		if (!oculusPresent) {
+						fpsCamera.SetActive (true);
+						hmdCamera.SetActive (false);
+				} else {
+					fpsCamera.SetActive (false);
+					hmdCamera.SetActive (true);
+				}
 	}
 
 	// Update is called once per frame
@@ -97,15 +117,24 @@ public class GameController : MonoBehaviour {
 	void loadLevel() {
 		if (Application.loadedLevel != 3){
 			int nextlevel = Application.loadedLevel + 1;
-			OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
-			OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
+			if (oculusPresent){
+				OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
+				OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
+			}
+			else {
+				Autofade.LoadLevel(nextlevel ,3,3,Color.white);
+			}
 			FadeOutMusic();
-			//Autofade.LoadLevel(nextlevel ,3,3,Color.white);
 		}
 		if (Application.loadedLevel == 3) {
 			int nextlevel = 0;
-			OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
-			OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
+			if (oculusPresent){
+				OVRCameraController.GetComponent<fadeInOut>().levelToLoad = nextlevel;
+				OVRCameraController.GetComponent<fadeInOut>().changeLevelFade = true;
+			}
+			else {
+				Autofade.LoadLevel(nextlevel ,3,3,Color.white);
+			}
 			FadeOutMusic();
 				}
 	}
