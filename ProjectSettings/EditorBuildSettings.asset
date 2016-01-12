@@ -6,12 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Loadingroom.unity
+    path: Assets/Scenes/start_room.unity
   - enabled: 1
-    path: Assets/Scenes/Room.unity
-  - enabled: 0
-    path: Assets/Scenes/Wald.unity
+    path: Assets/Scenes/forest.unity
   - enabled: 1
-    path: Assets/Scenes/LowPolyWald.unity
-  - enabled: 1
-    path: Assets/Scenes/Room_Wal.unity
+    path: Assets/Scenes/whale_room.unity
